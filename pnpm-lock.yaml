@@ -3,7 +3,8 @@ lockfileVersion: 5.4
 specifiers:
   '@types/react': ^18.0.26
   '@types/react-dom': ^18.0.9
-  '@typescript-eslint/eslint-plugin': ^5.0.0
+  '@typescript-eslint/eslint-plugin': ^5.48.0
+  '@typescript-eslint/parser': ^5.48.0
   '@vitejs/plugin-react': ^3.0.0
   eslint: ^8.31.0
   eslint-config-airbnb: ^19.0.4
@@ -24,6 +25,7 @@ devDependencies:
   '@types/react': 18.0.26
   '@types/react-dom': 18.0.10
   '@typescript-eslint/eslint-plugin': 5.48.0_k73wpmdolxikpyqun3p36akaaq
+  '@typescript-eslint/parser': 5.48.0_iukboom6ndih5an6iafl45j2fe
   '@vitejs/plugin-react': 3.0.1_vite@4.0.4
   eslint: 8.31.0
   eslint-config-airbnb: 19.0.4_kdrd7zxcgo7evu26hvr6zfy33i
