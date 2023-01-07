@@ -4,13 +4,14 @@ import {
   themeFromSourceColor,
 } from '@material/material-color-utilities';
 
-// material theme apply
-const theme = themeFromSourceColor(argbFromHex('#9c1aff'));
-const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-applyTheme(theme, { target: document.body, dark: systemDark });
+import { Button } from './components/button';
+
+const theme = themeFromSourceColor(argbFromHex('#e0e783'));
+// const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+applyTheme(theme, { target: document.body, dark: false });
 
 export const App = () => (
-  <div>
-    <h1 className="text-3xl font-bold underline">App</h1>
+  <div className="flex h-screen w-full items-center justify-center">
+    <Button>Example button</Button>
   </div>
 );
