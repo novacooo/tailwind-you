@@ -6,7 +6,7 @@ import {
 
 import { Button } from './components/button';
 
-const theme = themeFromSourceColor(argbFromHex('#e6dc57'));
+const theme = themeFromSourceColor(argbFromHex('#7b8f42'));
 // const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 applyTheme(theme, { target: document.body, dark: false });
 
