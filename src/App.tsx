@@ -6,12 +6,12 @@ import {
 
 import { Button } from './components/button';
 
-const theme = themeFromSourceColor(argbFromHex('#e0e783'));
+const theme = themeFromSourceColor(argbFromHex('#e6dc57'));
 // const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 applyTheme(theme, { target: document.body, dark: false });
 
 export const App = () => (
-  <div className="flex h-screen w-full items-center justify-center">
+  <div className="bg-background flex h-screen w-full items-center justify-center">
     <Button>Example button</Button>
   </div>
 );
