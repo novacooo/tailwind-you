@@ -1,6 +1,5 @@
 import {
   Scheme,
-  applyTheme,
   argbFromHex,
   hexFromArgb,
   themeFromSourceColor,
@@ -45,8 +44,6 @@ export const TailwindYouProvider = ({
   const variables = lightVariables.concat(darkVariables);
   const cssVariables = variables.join(' ');
   const css = `:root { ${cssVariables} }`;
-
-  applyTheme(theme, { target: document.body, dark: false });
 
   return (
     <>
