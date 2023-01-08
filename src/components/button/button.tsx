@@ -5,11 +5,15 @@ import { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal';
+  buttonClassName?: string;
+  stateLayerClassName?: string;
 }
 
 export const Button = ({
   children,
   variant = 'filled',
+  buttonClassName,
+  stateLayerClassName,
   type,
   ...rest
 }: ButtonProps) => (
@@ -20,6 +24,7 @@ export const Button = ({
       variant === 'filled' && 'bg-primary text-on-primary',
       variant === 'tonal' &&
         'bg-secondary-container text-on-secondary-container',
+      buttonClassName && buttonClassName,
     )}
     {...rest}
   >
@@ -28,6 +33,7 @@ export const Button = ({
         'group-disabled:bg-on-surface absolute inset-0 opacity-0 group-hover:opacity-[.08] group-focus:opacity-[.12] group-active:opacity-[.08] group-disabled:opacity-[.12]',
         variant === 'filled' && 'bg-on-primary',
         variant === 'tonal' && 'bg-on-secondary-container',
+        stateLayerClassName && stateLayerClassName,
       )}
     />
     {children}
