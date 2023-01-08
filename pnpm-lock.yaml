@@ -20,6 +20,7 @@ specifiers:
   eslint-plugin-react: ^7.31.11
   eslint-plugin-react-hooks: ^4.6.0
   eslint-plugin-tailwindcss: ^3.8.0
+  polished: ^4.2.2
   postcss: ^8.4.21
   prettier: 2.8.2
   react: ^18.2.0
@@ -38,6 +39,7 @@ specifiers:
 dependencies:
   '@material/material-color-utilities': 0.2.0
   clsx: 1.2.1
+  polished: 4.2.2
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-helmet: 6.1.0_react@18.2.0
@@ -278,7 +280,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
-    dev: true
 
   /@babel/template/7.20.7:
     resolution: {integrity: sha512-8SegXApWe6VoNw0r9JHpSteLKTpTiLZ4rMlGIm9JQ18KiCtyQiAMEazujAHrUS5flrcqYZa75ukev3P6QmUwUw==}
@@ -2691,6 +2692,13 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /polished/4.2.2:
+    resolution: {integrity: sha512-Sz2Lkdxz6F2Pgnpi9U5Ng/WdWAUZxmHrNPoVlm3aAemxoy2Qy7LGjQg4uf8qKelDAUW94F4np3iH2YPf2qefcQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      '@babel/runtime': 7.20.7
+    dev: false
+
   /postcss-import/14.1.0_postcss@8.4.21:
     resolution: {integrity: sha512-flwI+Vgm4SElObFVPpTIT7SU7R3qk2L7PyduMcokiaVKuWv9d/U+Gm/QAd8NDLuykTWTkcrjOeD2Pp1rMeBTGw==}
     engines: {node: '>=10.0.0'}
@@ -2913,7 +2921,6 @@ packages:
 
   /regenerator-runtime/0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
-    dev: true
 
   /regexp.prototype.flags/1.4.3:
     resolution: {integrity: sha512-fjggEOO3slI6Wvgjwflkc4NFRCTZAu5CnNfBd5qOMYhWdn67nJBBu34/TkD++eeFmd8C9r9jfXJ27+nSiRkSUA==}

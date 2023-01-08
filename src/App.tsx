@@ -22,13 +22,13 @@ export const App = () => (
         Tailwind You
       </span>
       <ToggleThemeSection />
-      <div className="bg-primary-light dark:bg-primary-dark  relative flex h-96 w-96 overflow-hidden">
+      <div className="bg-primary-light dark:bg-primary-dark relative h-96 w-96 overflow-hidden">
         <Ripple />
       </div>
-      <div className="bg-primary-light dark:bg-primary-dark relative flex h-60 w-[500px] overflow-hidden">
+      <div className="bg-primary-light dark:bg-primary-dark relative h-60 w-[500px] overflow-hidden">
         <Ripple />
       </div>
-      <div className="bg-primary-light dark:bg-primary-dark  relative flex h-[500px] w-60 overflow-hidden">
+      <div className="bg-primary-light dark:bg-primary-dark  relative h-[500px] w-60 overflow-hidden">
         <Ripple />
       </div>
       <div className="flex gap-40">

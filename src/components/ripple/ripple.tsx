@@ -1,6 +1,8 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+import { useTailwindYouContext } from 'components/tailwind-you-provider';
+import { cssVar, transparentize } from 'polished';
 import { MouseEvent, useLayoutEffect, useState } from 'react';
 
 interface RippleBubble {
@@ -37,12 +39,36 @@ const useDebouncedCleanUp = (
   }, [count, duration, cleanUpFunction]);
 };
 
-const Bubble = ({ x, y, size }: BubbleProps) => (
-  <div
-    style={{ left: x, top: y, width: size, height: size }}
-    className="ripple"
-  />
-);
+const Bubble = ({ x, y, size }: BubbleProps) => {
+  const { isDarkClass } = useTailwindYouContext();
+
+  const varName = isDarkClass ? '--ty-dark-surface' : '--ty-light-surface';
+  const color = cssVar(varName, '#fff');
+
+  const color0 = transparentize(1, color.toString());
+  const color20 = transparentize(0.8, color.toString());
+  const color30 = transparentize(0.7, color.toString());
+
+  const background = `radial-gradient(
+    circle,
+    ${color20} 0%,
+    ${color30} 33%,
+    ${color0} 50%
+  )`;
+
+  return (
+    <div
+      style={{
+        left: x,
+        top: y,
+        width: size,
+        height: size,
+        background,
+      }}
+      className="ripple"
+    />
+  );
+};
 
 export const Ripple = () => {
   const [bubbles, setBubbles] = useState<RippleBubble[]>([]);

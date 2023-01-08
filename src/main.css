@@ -147,12 +147,6 @@
   .ripple {
     @apply transition absolute rounded-full -translate-x-1/2 -translate-y-1/2;
 
-    background: radial-gradient(
-      circle,
-      rgb(255 255 255 / 20%) 0%,
-      rgb(255 255 255 / 30%) 33%,
-      rgb(255 255 255 / 0%) 50%
-    );
     animation: ripple-animation 400ms ease-out both;
   }
 
@@ -162,7 +156,7 @@
     }
 
     50% {
-      @apply opacity-100;
+      @apply opacity-50;
     }
 
     100% {
