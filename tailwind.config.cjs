@@ -6,7 +6,7 @@ const darkPrefix = 'ty-dark';
 
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'media',
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {

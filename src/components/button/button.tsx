@@ -22,7 +22,7 @@ export const Button = ({
   <button
     type={type || 'button'}
     className={clsx(
-      'group relative h-10 overflow-hidden rounded-full px-6 disabled:bg-transparent disabled:shadow-none',
+      'group relative h-10 overflow-hidden rounded-full px-6 disabled:bg-transparent disabled:shadow-none dark:disabled:bg-transparent',
       variant === 'filled' &&
         'bg-primary-light dark:bg-primary-dark hover:elevation-light-1',
       variant === 'outlined' &&

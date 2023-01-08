@@ -1,18 +1,34 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 import {
   Scheme,
   argbFromHex,
   hexFromArgb,
   themeFromSourceColor,
 } from '@material/material-color-utilities';
-import { ReactNode } from 'react';
+import { ReactNode, createContext, useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
 
 import { kebabize } from 'helpers';
+
+interface TailwindYouContextValues {
+  isDarkClass: boolean;
+  toggleDarkClass: () => void;
+}
 
 interface TailwindYouProviderProps {
   children: ReactNode;
   sourceColor?: string;
 }
+
+const initialValues: TailwindYouContextValues = {
+  isDarkClass: false,
+  toggleDarkClass: () => {},
+};
+
+const TailwindYouContext =
+  createContext<TailwindYouContextValues>(initialValues);
+
+export const useTailwindYouContext = () => useContext(TailwindYouContext);
 
 const getCssVariables = (scheme: Scheme, prefix: string) => {
   const variables: string[] = [];
@@ -33,17 +49,22 @@ export const TailwindYouProvider = ({
   children,
   sourceColor,
 }: TailwindYouProviderProps) => {
-  const defaultColor = '#1814eb';
+  const [isDarkClass, setIsDarkClass] = useState<boolean>(false);
 
+  const defaultColor = '#1814eb';
   const theme = themeFromSourceColor(argbFromHex(sourceColor || defaultColor));
   // const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
   const { light, dark } = theme.schemes;
   const lightVariables = getCssVariables(light, 'ty-light');
   const darkVariables = getCssVariables(dark, 'ty-dark');
   const variables = lightVariables.concat(darkVariables);
   const cssVariables = variables.join(' ');
   const css = `:root { ${cssVariables} }`;
+
+  const toggleDarkClass = () => {
+    document.documentElement.classList.toggle('dark');
+    setIsDarkClass((prevIsDarkClass) => !prevIsDarkClass);
+  };
 
   return (
     <>
@@ -54,7 +75,9 @@ export const TailwindYouProvider = ({
         />
         <style type="text/css">{css}</style>
       </Helmet>
-      {children}
+      <TailwindYouContext.Provider value={{ isDarkClass, toggleDarkClass }}>
+        {children}
+      </TailwindYouContext.Provider>
     </>
   );
 };
