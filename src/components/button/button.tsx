@@ -5,12 +5,20 @@ import { ButtonHTMLAttributes } from 'react';
 
 import { Ripple } from 'components/ripple';
 
+type ButtonVariant = 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal';
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal';
+  variant?: ButtonVariant;
   buttonClassName?: string;
   stateLayerClassName?: string;
   textClassName?: string;
 }
+
+const getRippleColor = (variant: ButtonVariant) => {
+  if (variant === 'filled') return 'on-primary';
+  if (variant === 'tonal') return 'on-secondary-container';
+  return 'primary';
+};
 
 export const Button = ({
   children,
@@ -69,6 +77,6 @@ export const Button = ({
     >
       {children}
     </span>
-    <Ripple />
+    <Ripple color={getRippleColor(variant)} />
   </button>
 );

@@ -1,18 +1,13 @@
-import { useTailwindYouContext } from 'components/tailwind-you-provider';
-import { cssVar, transparentize } from 'polished';
+import { transparentize } from 'polished';
 
 interface BubbleProps {
   x: number;
   y: number;
   size: number;
+  color: string | number;
 }
 
-export const Bubble = ({ x, y, size }: BubbleProps) => {
-  const { isDarkClass } = useTailwindYouContext();
-
-  const varName = isDarkClass ? '--ty-dark-surface' : '--ty-light-surface';
-  const color = cssVar(varName, '#fff');
-
+export const Bubble = ({ x, y, size, color }: BubbleProps) => {
   const color0 = transparentize(1, color.toString());
   const color20 = transparentize(0.8, color.toString());
   const color30 = transparentize(0.7, color.toString());

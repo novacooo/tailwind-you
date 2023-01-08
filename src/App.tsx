@@ -11,7 +11,7 @@ const ToggleThemeSection = () => {
 };
 
 export const App = () => (
-  <TailwindYouProvider sourceColor="#5e60ff">
+  <TailwindYouProvider>
     <div className="bg-background-light dark:bg-background-dark flex min-h-screen flex-col items-center gap-20">
       <span className="text-display-lg text-primary-light dark:text-primary-dark mt-20">
         Tailwind You
