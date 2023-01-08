@@ -6,7 +6,7 @@ import {
 
 import { Button } from './components/button';
 
-const theme = themeFromSourceColor(argbFromHex('#6750A4'));
+const theme = themeFromSourceColor(argbFromHex('#1814eb'));
 // const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 applyTheme(theme, { target: document.body, dark: false });
 
@@ -34,28 +34,35 @@ export const App = () => (
       <span className="text-headline-lg text-primary">Buttons</span>
       <div className="flex gap-10">
         <div className="flex flex-col gap-5">
-          <span className="text-title-lg">Filled</span>
+          <span className="text-title-md">Filled</span>
           <Button variant="filled">Enabled</Button>
           <Button variant="filled" disabled>
             Disabled
           </Button>
         </div>
         <div className="flex flex-col gap-5">
-          <span className="text-title-lg">Outlined</span>
+          <span className="text-title-md">Outlined</span>
           <Button variant="outlined">Enabled</Button>
           <Button variant="outlined" disabled>
             Disabled
           </Button>
         </div>
         <div className="flex flex-col gap-5">
-          <span className="text-title-lg">Text</span>
+          <span className="text-title-md">Text</span>
           <Button variant="text">Enabled</Button>
           <Button variant="text" disabled>
             Disabled
           </Button>
         </div>
         <div className="flex flex-col gap-5">
-          <span className="text-title-lg">Tonal</span>
+          <span className="text-title-md">Elevated</span>
+          <Button variant="elevated">Enabled</Button>
+          <Button variant="elevated" disabled>
+            Disabled
+          </Button>
+        </div>
+        <div className="flex flex-col gap-5">
+          <span className="text-title-md">Tonal</span>
           <Button variant="tonal">Enabled</Button>
           <Button variant="tonal" disabled>
             Disabled
