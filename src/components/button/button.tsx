@@ -3,6 +3,8 @@
 import { clsx } from 'clsx';
 import { ButtonHTMLAttributes } from 'react';
 
+import { Ripple } from 'components/ripple';
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal';
   buttonClassName?: string;
@@ -38,7 +40,7 @@ export const Button = ({
   >
     <div
       className={clsx(
-        'absolute inset-0 rounded-full opacity-0 transition group-hover:opacity-[.08] group-focus:opacity-[.12] group-active:opacity-[.08] group-disabled:opacity-[.12]',
+        'absolute inset-0 rounded-full opacity-0 transition group-hover:opacity-[.08] group-focus:opacity-[.12] group-disabled:opacity-[.12]',
         variant === 'filled' &&
           'bg-on-primary-light dark:bg-on-primary-dark group-disabled:bg-on-surface-light dark:group-disabled:bg-on-surface-dark',
         variant === 'outlined' &&
@@ -67,5 +69,6 @@ export const Button = ({
     >
       {children}
     </span>
+    <Ripple />
   </button>
 );
