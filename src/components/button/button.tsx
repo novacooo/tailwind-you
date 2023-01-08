@@ -22,7 +22,7 @@ export const Button = ({
   <button
     type={type || 'button'}
     className={clsx(
-      'group relative h-10 overflow-hidden rounded-full px-6 disabled:bg-transparent disabled:shadow-none dark:disabled:bg-transparent',
+      'group relative h-10 overflow-hidden rounded-full px-6 transition disabled:bg-transparent disabled:shadow-none dark:disabled:bg-transparent',
       variant === 'filled' &&
         'bg-primary-light dark:bg-primary-dark hover:elevation-light-1',
       variant === 'outlined' &&
@@ -38,7 +38,7 @@ export const Button = ({
   >
     <div
       className={clsx(
-        'absolute inset-0 rounded-full opacity-0 group-hover:opacity-[.08] group-focus:opacity-[.12] group-active:opacity-[.08] group-disabled:opacity-[.12]',
+        'absolute inset-0 rounded-full opacity-0 transition group-hover:opacity-[.08] group-focus:opacity-[.12] group-active:opacity-[.08] group-disabled:opacity-[.12]',
         variant === 'filled' &&
           'bg-on-primary-light dark:bg-on-primary-dark group-disabled:bg-on-surface-light dark:group-disabled:bg-on-surface-dark',
         variant === 'outlined' &&
@@ -54,7 +54,7 @@ export const Button = ({
     />
     <span
       className={clsx(
-        'text-label-lg group-disabled:text-on-surface-light dark:group-disabled:text-on-surface-dark group-disabled:opacity-[.38]',
+        'text-label-lg group-disabled:text-on-surface-light dark:group-disabled:text-on-surface-dark transition group-disabled:opacity-[.38]',
         variant === 'filled' &&
           'text-on-primary-light dark:text-on-primary-dark',
         variant === 'outlined' && 'text-primary-light dark:text-primary-dark',
