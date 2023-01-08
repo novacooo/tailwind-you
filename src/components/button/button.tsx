@@ -26,6 +26,7 @@ export const Button = ({
       variant === 'filled' && 'bg-primary hover:elevation-light-1 px-6 py-2.5',
       variant === 'outlined' &&
         'border-outline border-1 focus:border-primary px-[1.438rem] py-[0.563rem] disabled:border-none disabled:px-6 disabled:py-2.5',
+      variant === 'text' && 'px-3 py-2.5',
       variant === 'tonal' &&
         'bg-secondary-container hover:elevation-light-1 px-6 py-2.5',
       buttonClassName && buttonClassName,
@@ -38,6 +39,7 @@ export const Button = ({
         variant === 'filled' && 'bg-on-primary group-disabled:bg-on-surface',
         variant === 'outlined' &&
           'bg-primary border-on-surface group-disabled:border-1 group-disabled:bg-transparent',
+        variant === 'text' && 'bg-primary group-disabled:bg-transparent',
         variant === 'tonal' &&
           'bg-on-secondary-container group-disabled:bg-on-surface',
         stateLayerClassName && stateLayerClassName,
@@ -48,6 +50,7 @@ export const Button = ({
         'text-label-lg group-disabled:text-on-surface group-disabled:opacity-[.38]',
         variant === 'filled' && 'text-on-primary',
         variant === 'outlined' && 'text-primary',
+        variant === 'text' && 'text-primary',
         variant === 'tonal' && 'text-on-secondary-container',
         textClassName && textClassName,
       )}

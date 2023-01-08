@@ -48,6 +48,13 @@ export const App = () => (
           </Button>
         </div>
         <div className="flex flex-col gap-5">
+          <span className="text-title-lg">Text</span>
+          <Button variant="text">Enabled</Button>
+          <Button variant="text" disabled>
+            Disabled
+          </Button>
+        </div>
+        <div className="flex flex-col gap-5">
           <span className="text-title-lg">Tonal</span>
           <Button variant="tonal">Enabled</Button>
           <Button variant="tonal" disabled>
