@@ -6,7 +6,7 @@ import {
 
 import { Button } from './components/button';
 
-const theme = themeFromSourceColor(argbFromHex('#b692e5'));
+const theme = themeFromSourceColor(argbFromHex('#6750A4'));
 // const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 applyTheme(theme, { target: document.body, dark: false });
 
@@ -37,6 +37,13 @@ export const App = () => (
           <span className="text-title-lg">Filled</span>
           <Button variant="filled">Enabled</Button>
           <Button variant="filled" disabled>
+            Disabled
+          </Button>
+        </div>
+        <div className="flex flex-col gap-5">
+          <span className="text-title-lg">Outlined</span>
+          <Button variant="outlined">Enabled</Button>
+          <Button variant="outlined" disabled>
             Disabled
           </Button>
         </div>

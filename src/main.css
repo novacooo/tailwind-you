@@ -91,35 +91,35 @@
   .text-title-md {
     line-height: 1.5rem; /* 24px */
     font-size: 1rem; /* 16px */
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.009rem; /* 0.15px */
   }
 
   .text-title-sm {
     line-height: 1.25rem; /* 20px */
     font-size: 0.875rem; /* 14px */
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.006rem; /* 0.1px */
   }
 
   .text-label-lg {
     line-height: 1.25rem; /* 20px */
     font-size: 0.875rem; /* 14px */
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.006rem; /* 0.1px */
   }
 
   .text-label-md {
     line-height: 1rem; /* 16px */
     font-size: 0.75rem; /* 12px */
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.031rem; /* 0.5px */
   }
 
   .text-label-sm {
     line-height: 1rem; /* 16px */
     font-size: 0.688rem; /* 11px */
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.031rem; /* 0.5px */
   }
 

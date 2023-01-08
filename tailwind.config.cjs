@@ -40,6 +40,9 @@ module.exports = {
         'inverse-on-surface': 'var(--md-sys-color-inverse-on-surface)',
         'inverse-primary': 'var(--md-sys-color-inverse-primary)',
       },
+      borderWidth: {
+        1: '1px',
+      },
     },
   },
   plugins: [],
