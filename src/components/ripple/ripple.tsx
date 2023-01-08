@@ -1,26 +1,42 @@
-import { useEffect, useRef, useState } from 'react';
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import { MouseEvent, useState } from 'react';
+
+interface RippleBubble {
+  x: number;
+  y: number;
+  size: number;
+}
+
+interface BubbleProps {
+  size: number;
+}
+
+const Bubble = ({ size }: BubbleProps) => (
+  <div style={{ width: size, height: size }} className="ripple" />
+);
 
 export const Ripple = () => {
-  const [size, setSize] = useState<number>(0);
+  const [bubbles, setBubbles] = useState<RippleBubble[]>([]);
 
-  const ref = useRef<HTMLDivElement>(null);
+  const addBubble = (e: MouseEvent<HTMLDivElement>) => {
+    const cont = e.currentTarget.getBoundingClientRect();
 
-  useEffect(() => {
-    if (!ref.current) return;
+    const size = cont.width > cont.height ? cont.width : cont.height;
 
-    const parentEl = ref.current.parentElement;
-    if (!parentEl) return;
+    const x = e.pageX - cont.x - size / 2;
+    const y = e.pageY - cont.y - size / 2;
 
-    const width = parentEl.offsetWidth;
-    const height = parentEl.offsetHeight;
+    const newBubble: RippleBubble = { x, y, size };
 
-    const newSize = width > height ? width : height;
-
-    setSize(newSize);
-    setSize(newSize);
-  }, [ref]);
+    setBubbles([...bubbles, newBubble]);
+  };
 
   return (
-    <div ref={ref} style={{ width: size, height: size }} className="ripple" />
+    <div className="absolute inset-0" onClick={addBubble}>
+      {bubbles.map(({ size }) => (
+        <Bubble size={size} />
+      ))}
+    </div>
   );
 };

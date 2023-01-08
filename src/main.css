@@ -153,10 +153,7 @@
       rgb(255 255 255 / 30%) 33%,
       rgb(255 255 255 / 0%) 50%
     );
-    animation: ripple-animation;
-    animation-duration: 900ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-out;
+    animation: ripple-animation 500ms ease-out both;
   }
 
   @keyframes ripple-animation {
