@@ -1,4 +1,9 @@
-import { Button, TailwindYouProvider, useTailwindYouContext } from 'components';
+import {
+  Button,
+  Ripple,
+  TailwindYouProvider,
+  useTailwindYouContext,
+} from 'components';
 
 const ToggleThemeSection = () => {
   const { isDarkClass, toggleDarkClass } = useTailwindYouContext();
@@ -11,12 +16,13 @@ const ToggleThemeSection = () => {
 };
 
 export const App = () => (
-  <TailwindYouProvider>
+  <TailwindYouProvider sourceColor="#55d06c">
     <div className="bg-background-light dark:bg-background-dark flex min-h-screen flex-col items-center gap-20">
       <span className="text-display-lg text-primary-light dark:text-primary-dark mt-20">
         Tailwind You
       </span>
       <ToggleThemeSection />
+      <Ripple />
       <div className="flex gap-40">
         <div className="flex flex-col gap-3">
           <span className="text-headline-lg text-primary-light dark:text-primary-dark mb-8">
