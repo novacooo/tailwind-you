@@ -145,7 +145,7 @@
   }
 
   .ripple {
-    @apply transition;
+    @apply transition absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full;
 
     background: radial-gradient(
       circle,
@@ -169,7 +169,7 @@
     }
 
     100% {
-      @apply scale-[4.0] opacity-0;
+      @apply scale-[5.0] opacity-0;
     }
   }
 }

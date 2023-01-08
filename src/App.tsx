@@ -16,13 +16,21 @@ const ToggleThemeSection = () => {
 };
 
 export const App = () => (
-  <TailwindYouProvider sourceColor="#55d06c">
+  <TailwindYouProvider sourceColor="#5e60ff">
     <div className="bg-background-light dark:bg-background-dark flex min-h-screen flex-col items-center gap-20">
       <span className="text-display-lg text-primary-light dark:text-primary-dark mt-20">
         Tailwind You
       </span>
       <ToggleThemeSection />
-      <Ripple />
+      <div className="bg-primary-light dark:bg-primary-dark  relative flex h-96 w-96 overflow-hidden">
+        <Ripple />
+      </div>
+      <div className="bg-primary-light dark:bg-primary-dark relative flex h-60 w-[500px] overflow-hidden">
+        <Ripple />
+      </div>
+      <div className="bg-primary-light dark:bg-primary-dark  relative flex h-[500px] w-60 overflow-hidden">
+        <Ripple />
+      </div>
       <div className="flex gap-40">
         <div className="flex flex-col gap-3">
           <span className="text-headline-lg text-primary-light dark:text-primary-dark mb-8">

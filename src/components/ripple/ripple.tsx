@@ -1,5 +1,26 @@
-export const Ripple = () => (
-  <div className="bg-primary-light dark:bg-primary-dark flex h-96 w-96 items-center justify-center">
-    <div className="ripple h-80 w-80 rounded-full" />
-  </div>
-);
+import { useEffect, useRef, useState } from 'react';
+
+export const Ripple = () => {
+  const [size, setSize] = useState<number>(0);
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const parentEl = ref.current.parentElement;
+    if (!parentEl) return;
+
+    const width = parentEl.offsetWidth;
+    const height = parentEl.offsetHeight;
+
+    const newSize = width > height ? width : height;
+
+    setSize(newSize);
+    setSize(newSize);
+  }, [ref]);
+
+  return (
+    <div ref={ref} style={{ width: size, height: size }} className="ripple" />
+  );
+};
