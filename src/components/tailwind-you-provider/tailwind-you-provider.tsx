@@ -1,11 +1,10 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
 import {
   Scheme,
   argbFromHex,
   hexFromArgb,
   themeFromSourceColor,
 } from '@material/material-color-utilities';
-import { ReactNode, createContext, useContext, useState } from 'react';
+import { ReactNode, createContext, useContext, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet';
 
 import { kebabize } from 'helpers';
@@ -49,7 +48,11 @@ export const TailwindYouProvider = ({
   children,
   sourceColor,
 }: TailwindYouProviderProps) => {
-  const [isDarkClass, setIsDarkClass] = useState<boolean>(false);
+  const darkClassName = 'dark';
+
+  const [isDarkClass, setIsDarkClass] = useState<boolean>(
+    document.documentElement.classList.contains(darkClassName),
+  );
 
   const defaultColor = '#1814eb';
   const theme = themeFromSourceColor(argbFromHex(sourceColor || defaultColor));
@@ -61,10 +64,16 @@ export const TailwindYouProvider = ({
   const cssVariables = variables.join(' ');
   const css = `:root { ${cssVariables} }`;
 
-  const toggleDarkClass = () => {
-    document.documentElement.classList.toggle('dark');
-    setIsDarkClass((prevIsDarkClass) => !prevIsDarkClass);
-  };
+  const providerValue = useMemo(() => {
+    const toggleDarkClass = () => {
+      document.documentElement.classList.toggle(darkClassName);
+      setIsDarkClass(
+        document.documentElement.classList.contains(darkClassName),
+      );
+    };
+
+    return { isDarkClass, toggleDarkClass };
+  }, [isDarkClass]);
 
   return (
     <>
@@ -75,7 +84,7 @@ export const TailwindYouProvider = ({
         />
         <style type="text/css">{css}</style>
       </Helmet>
-      <TailwindYouContext.Provider value={{ isDarkClass, toggleDarkClass }}>
+      <TailwindYouContext.Provider value={providerValue}>
         {children}
       </TailwindYouContext.Provider>
     </>
