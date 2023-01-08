@@ -1,5 +1,4 @@
-import { TailwindYouProvider } from './components';
-import { Button } from './components/button';
+import { Button, TailwindYouProvider } from 'components';
 
 export const App = () => (
   <TailwindYouProvider>

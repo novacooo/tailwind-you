@@ -5,9 +5,10 @@ import {
   hexFromArgb,
   themeFromSourceColor,
 } from '@material/material-color-utilities';
-import { ReactNode, useEffect } from 'react';
+import { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
-import { kebabize } from '../../helpers';
+
+import { kebabize } from 'helpers';
 
 interface TailwindYouProviderProps {
   children: ReactNode;
@@ -34,8 +35,10 @@ export const TailwindYouProvider = ({
   sourceColor,
 }: TailwindYouProviderProps) => {
   const defaultColor = '#1814eb';
+
   const theme = themeFromSourceColor(argbFromHex(sourceColor || defaultColor));
   // const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
   const { light, dark } = theme.schemes;
   const lightVariables = getCssVariables(light, 'ty-light');
   const darkVariables = getCssVariables(dark, 'ty-dark');
@@ -43,9 +46,7 @@ export const TailwindYouProvider = ({
   const cssVariables = variables.join(' ');
   const css = `:root { ${cssVariables} }`;
 
-  useEffect(() => {
-    applyTheme(theme, { target: document.body, dark: false });
-  }, [theme]);
+  applyTheme(theme, { target: document.body, dark: false });
 
   return (
     <>
