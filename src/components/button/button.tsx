@@ -59,30 +59,50 @@ export const Button = ({
   >
     <div
       className={clsx(
-        'absolute inset-0 rounded-full opacity-0 transition group-hover:opacity-[.08] group-focus:opacity-[.12] group-disabled:opacity-[.12]',
-        variant === 'filled' &&
-          'bg-on-primary-light dark:bg-on-primary-dark group-disabled:bg-on-surface-light dark:group-disabled:bg-on-surface-dark',
-        variant === 'outlined' &&
-          'bg-primary-light dark:bg-primary-dark border-on-surface-light dark:border-on-surface-dark group-disabled:border-1 group-disabled:bg-transparent',
-        variant === 'text' &&
+        'absolute inset-0 rounded-full opacity-0 transition',
+        'group-hover:opacity-[.08] group-focus:opacity-[.12]',
+        'group-disabled:opacity-[.12]',
+        variant === 'filled' && [
+          'bg-on-primary-light dark:bg-on-primary-dark',
+          'group-disabled:bg-on-surface-light',
+          'dark:group-disabled:bg-on-surface-dark',
+        ],
+        variant === 'outlined' && [
+          'bg-primary-light dark:bg-primary-dark border-on-surface-light',
+          'dark:border-on-surface-dark group-disabled:border-1',
+          'group-disabled:bg-transparent',
+        ],
+        variant === 'text' && [
           'bg-primary-light dark:bg-primary-dark group-disabled:bg-transparent',
-        variant === 'elevated' &&
-          'bg-primary-light dark:bg-primary-dark group-disabled:bg-on-surface-light dark:group-disabled:bg-on-surface-dark opacity-5',
-        variant === 'tonal' &&
-          'bg-on-secondary-container-light dark:bg-on-secondary-container-dark group-disabled:bg-on-surface-light dark:group-disabled:bg-on-surface-dark',
+        ],
+        variant === 'elevated' && [
+          'bg-primary-light dark:bg-primary-dark opacity-5',
+          'group-disabled:bg-on-surface-light',
+          'dark:group-disabled:bg-on-surface-dark',
+        ],
+        variant === 'tonal' && [
+          'bg-on-secondary-container-light dark:bg-on-secondary-container-dark',
+          'group-disabled:bg-on-surface-light',
+          'dark:group-disabled:bg-on-surface-dark',
+        ],
         stateLayerClassName && stateLayerClassName,
       )}
     />
     <span
       className={clsx(
-        'text-label-lg group-disabled:text-on-surface-light dark:group-disabled:text-on-surface-dark transition group-disabled:opacity-[.38]',
-        variant === 'filled' &&
+        'text-label-lg group-disabled:text-on-surface-light',
+        'dark:group-disabled:text-on-surface-dark transition',
+        'group-disabled:opacity-[.38]',
+        variant === 'filled' && [
           'text-on-primary-light dark:text-on-primary-dark',
-        variant === 'outlined' && 'text-primary-light dark:text-primary-dark',
-        variant === 'text' && 'text-primary-light dark:text-primary-dark',
-        variant === 'elevated' && 'text-primary-light dark:text-primary-dark',
-        variant === 'tonal' &&
-          'text-on-secondary-container-light dark:text-on-secondary-container-dark',
+        ],
+        variant === 'outlined' && ['text-primary-light dark:text-primary-dark'],
+        variant === 'text' && ['text-primary-light dark:text-primary-dark'],
+        variant === 'elevated' && ['text-primary-light dark:text-primary-dark'],
+        variant === 'tonal' && [
+          'text-on-secondary-container-light',
+          'dark:text-on-secondary-container-dark',
+        ],
         textClassName && textClassName,
       )}
     >
