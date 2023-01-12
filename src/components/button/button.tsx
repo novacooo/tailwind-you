@@ -32,16 +32,27 @@ export const Button = ({
   <button
     type={type || 'button'}
     className={clsx(
-      'group relative h-10 overflow-hidden rounded-full px-6 transition disabled:bg-transparent disabled:shadow-none dark:disabled:bg-transparent',
-      variant === 'filled' &&
-        'bg-primary-light dark:bg-primary-dark hover:elevation-light-1',
-      variant === 'outlined' &&
-        'border-outline-light dark:border-outline-dark border-1 focus:border-primary-light dark:focus:border-primary-dark px-[1.438rem] disabled:border-none disabled:px-6',
-      variant === 'text' && 'px-3',
-      variant === 'elevated' &&
-        'bg-surface-light dark:bg-surface-dark elevation-light-1 hover:elevation-light-2',
-      variant === 'tonal' &&
-        'bg-secondary-container-light dark:bg-secondary-container-dark hover:elevation-light-1',
+      'group relative h-10 overflow-hidden rounded-full px-6 transition',
+      'disabled:bg-transparent disabled:shadow-none',
+      'dark:disabled:bg-transparent',
+      variant === 'filled' && [
+        'bg-primary-light hover:elevation-light-1 dark:bg-primary-dark',
+      ],
+      variant === 'outlined' && [
+        'border-outline-light dark:border-outline-dark border-1',
+        'focus:border-primary-light dark:focus:border-primary-dark',
+        'px-[1.438rem] disabled:border-none disabled:px-6',
+      ],
+      variant === 'elevated' && [
+        'bg-surface-light dark:bg-surface-dark elevation-light-1',
+        'hover:elevation-light-2',
+      ],
+      variant === 'tonal' && [
+        'bg-secondary-container-light',
+        'hover:elevation-light-1',
+        'dark:bg-secondary-container-dark',
+      ],
+      variant === 'text' && ['px-3'],
       buttonClassName && buttonClassName,
     )}
     {...rest}
